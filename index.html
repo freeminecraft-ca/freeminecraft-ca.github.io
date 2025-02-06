@@ -5,11 +5,10 @@
   </head>
   <body>
     <div id="minecraft" style="width: 100%; height: 90vh;"></div>
-    <center><button id="startBtn" type="button" class="btn btn-primary" onclick="startMinecraft();">Start Minecraft</button></center> 
     <script>
+      startMinecraft();
       function startMinecraft() {
         document.getElementById('minecraft').innerHTML = '<iframe src="https://sd592g.github.io/zj684od4lfg/" style="width: 100%; height: 100%; border: none;"></iframe>';
-        document.getElementById('startBtn').style.display = "none";
       }  
     </script>
   </body>
