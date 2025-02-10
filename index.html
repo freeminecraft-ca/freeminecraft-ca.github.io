@@ -30,12 +30,13 @@
         <form id="loginForm">
             <div class="mb-3">
                 <input type="text" id="username" class="form-control" placeholder="Username" required>
+                <p id="username-error" class="text-danger mt-1"></p>
             </div>
             <div class="mb-3">
                 <input type="password" id="password" class="form-control" placeholder="Password" required>
+                <p id="password-error" class="text-danger mt-1"></p>
             </div>
             <button type="submit" class="btn btn-primary w-100">Login</button>
-            <p id="error-message" class="text-danger mt-3"></p>
         </form>
     </div>
 
@@ -49,16 +50,22 @@
             event.preventDefault();
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('error-message');
+            const usernameError = document.getElementById('username-error');
+            const passwordError = document.getElementById('password-error');
+            
+            usernameError.textContent = '';
+            passwordError.textContent = '';
             
             const users = await fetchUsers();
-            const user = users.find(u => u.username === username && u.password === password);
+            const user = users.find(u => u.username === username);
             
-            if (user) {
+            if (!user) {
+                usernameError.textContent = 'Incorrect username';
+            } else if (user.password !== password) {
+                passwordError.textContent = 'Incorrect password';
+            } else {
                 alert('Login successful!');
                 window.location.href = 'dashboard.html';
-            } else {
-                errorMessage.textContent = 'Invalid username or password';
             }
         });
     </script>
