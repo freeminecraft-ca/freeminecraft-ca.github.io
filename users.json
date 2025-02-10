@@ -1,3 +1,10 @@
 [
-    { "username": "arlen", "password": "xgd4-qsw4lol" },
+  {
+    "username": "admin",
+    "password": "1234"
+  },
+  {
+    "username": "player1",
+    "password": "minecraft"
+  }
 ]
