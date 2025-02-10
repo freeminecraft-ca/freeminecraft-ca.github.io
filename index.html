@@ -41,7 +41,7 @@
 
     <script>
         async function fetchUsers() {
-            const response = await fetch('./users.json');
+            const response = await fetch('users.json', { cache: 'no-cache' });
             return response.json();
         }
 
